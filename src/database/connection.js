@@ -9,4 +9,4 @@ const knex = require('knex')({
     }
 });
 
-module.export = knex
+module.exports = knex
