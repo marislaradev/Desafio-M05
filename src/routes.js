@@ -2,8 +2,6 @@ const express = require('express');
 
 const routes = express();
 
-routes.get('/', (req, res) => {
-    return res.json('Testando!');
-});
+routes.get('/',);
 
 module.exports = routes;
