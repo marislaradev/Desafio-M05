@@ -1,18 +1,55 @@
 const jwt = require('jsonwebtoken');
-const knex = '';
+const knex = require('../database/connection');
 
-const verifyLogin = async (req, res, next) => {
-    const { authorization } = req.headers;
+const verifyLogin = async (request, response, next) => {
+    const { authorization } = request.headers;
 
     const token = authorization.split(' ')[1];
 
     try {
+        if (authorization === 'Bearer') {
+            return response.status(401).json({ mensagem: 'Usuário não autenticado' });
+        };
+
+        const { id } = jwt.verify(token, process.env.PASSHASH);
+
+        const user = await knex('usuarios').where({ id }).first();
+
+        const { senha: _, ...loggedUser } = user;
+
+        request.user = loggedUser;
+
 
 
         next();
     } catch (error) {
-        return res.status(500).json({ mensagem: 'Erro interno no servidor' });
+        return response.status(500).json({ mensagem: "Erro inesperado do servidor." });
     }
-}
+};
 
-module.exports = verifyLogin;
+const verifyRegisterUser = (req, res, next) => {
+    const { nome, email, senha } = req.body;
+
+    try {
+        if (!nome) {
+            return res.status(404).json("O campo nome é obrigatório");
+        }
+
+        if (!email) {
+            return res.status(404).json("O campo email é obrigatório");
+        }
+
+        if (!senha) {
+            return res.status(404).json("O campo senha é obrigatório");
+        }
+        
+        next();
+    } catch (error) {
+        return res.status(500).json({ mensagem: "Erro inesperado do servidor." });
+    }
+};
+
+module.exports ={ 
+    verifyLogin,
+    verifyRegisterUser
+}
