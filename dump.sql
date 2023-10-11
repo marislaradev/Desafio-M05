@@ -1,5 +1,3 @@
-CREATE DATABASE pdv;
-
 CREATE TABLE usuarios
 (
     id SERIAL PRIMARY KEY,
