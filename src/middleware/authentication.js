@@ -26,4 +26,29 @@ const verifyLogin = async (request, response, next) => {
     }
 };
 
-module.exports = verifyLogin;
+const verifyRegisterUser = (req, res, next) => {
+    const { nome, email, senha } = req.body;
+
+    try {
+        if (!nome) {
+            return res.status(404).json("O campo nome é obrigatório");
+        }
+
+        if (!email) {
+            return res.status(404).json("O campo email é obrigatório");
+        }
+
+        if (!senha) {
+            return res.status(404).json("O campo senha é obrigatório");
+        }
+        
+        next();
+    } catch (error) {
+        return res.status(500).json({ mensagem: "Erro inesperado do servidor." });
+    }
+};
+
+module.exports ={ 
+    verifyLogin,
+    verifyRegisterUser
+}
