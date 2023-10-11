@@ -9,7 +9,7 @@ const verifyLogin = async (request, response, next) => {
     try {
         if (authorization === 'Bearer') {
             return response.status(401).json({ mensagem: 'Usuário não autenticado' });
-        }
+        };
 
         const { id } = jwt.verify(token, process.env.PASSHASH);
 
