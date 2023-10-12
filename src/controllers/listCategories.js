@@ -1,11 +1,11 @@
 const knex = require('../database/connection')
 
-const listCategories = async (request, response) => {
+const listCategories = async (req, res) => {
     try {
         const list = await knex('categorias');
-        return response.status(200).json(list);
+        return res.status(200).json(list);
     } catch (error) {
-        return response.status(500).json({ mensagem: "Erro inesperado do servidor." });
+        return res.status(500).json({ mensagem: "Erro inesperado do servidor." });
     }
 };
 

@@ -5,17 +5,23 @@ const registerUser = async (req, res) => {
     const { nome, email, senha } = req.body;
 
     try {
+        const verifyEmailUnique = await knex('usuarios').where({ email });
+
+        if (verifyEmailUnique.length > 0) {
+            return res.status(400).json({ mensagem: 'Email já existe' });
+        }
+
         const encryptedPassword = await bcrypt.hash(senha, 10);
 
-        const users = await knex.insert({nome, email, senha: encryptedPassword}).into('usuarios');
+        const users = await knex.insert({ nome, email, senha: encryptedPassword }).into('usuarios');
 
-        if (users == 0) {
+        if (users.rowCount === 0) {
             return res.status(400).json("O usuário não foi cadastrado.");
         }
 
-        return res.status(200).json("O usuario foi cadastrado com sucesso!");
+        return res.status(201).json({ mensagem: "O usuario foi cadastrado com sucesso!" });
     } catch (error) {
-        return res.status(400).json(error.message);
+        return res.status(400).json({ mensagem: error.message });
     }
 }
 
