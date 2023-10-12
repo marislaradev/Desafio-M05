@@ -21,6 +21,7 @@ const verifyLogin = async (req, res, next) => {
         req.user = loggedUser;
 
         next();
+
     } catch (error) {
         return res.status(500).json({ mensagem: "Erro inesperado do servidor." });
     }
