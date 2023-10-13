@@ -12,12 +12,7 @@ const verifyLogin = async (req, res, next) => {
 
     try {
 
-
-        next();
-    } catch (error) {
-        return res.status(500).json({ mensagem: 'Erro interno no servidor' });
-    }
-}
+        const { id } = jwt.verify(token, process.env.PASSHASH);
 
         const user = await knex('usuarios').where({ id });
 
@@ -26,7 +21,6 @@ const verifyLogin = async (req, res, next) => {
         req.user = loggedUser;
 
         next();
-
     } catch (error) {
         return res.status(500).json({ mensagem: "Erro inesperado do servidor." });
     }

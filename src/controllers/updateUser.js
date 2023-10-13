@@ -7,7 +7,7 @@ const updateUser = async (req, res) => {
 
   try {
 
-    const verifyEmailUnique = await knex('usuarios').where({ email });
+    const verifyEmailUnique = await knex('usuarios').where({ email }).andWhere('id', '!=', userId);
 
     if (verifyEmailUnique.length > 0) {
       return res.status(400).json({ mensagem: 'Email já existe' });
@@ -20,10 +20,10 @@ const updateUser = async (req, res) => {
       .update({ nome, email, senha: encryptedPassword });
 
     if (updateUser !== 1) {
-      return res.status(400).json({ mensagem: 'O Usuário não foi atualizado' });
+      return res.status(400).json({ mensagem: 'O usuário não foi atualizado' });
     }
 
-    return res.status(200).json({ mensagem: 'O Usuário foi atualizado com sucesso!' });
+    return res.status(200).json({ mensagem: 'O usuário foi atualizado com sucesso!' });
   } catch (error) {
     return res.status(400).json({ mensagem: error.message });
   }

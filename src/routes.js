@@ -22,8 +22,4 @@ routes.use(verifyLogin);
 routes.get('/usuario', detailUser);
 routes.put('/usuario', validateRequestBody(schemaUser), updateUser);
 
-routes.get('/', (req, res) => {
-    return res.status(200).json('Testando!')
-});
-
 module.exports = routes;
