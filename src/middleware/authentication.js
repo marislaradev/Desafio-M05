@@ -12,7 +12,12 @@ const verifyLogin = async (req, res, next) => {
 
     try {
 
-        const { id } = jwt.verify(token, process.env.PASSHASH);
+
+        next();
+    } catch (error) {
+        return res.status(500).json({ mensagem: 'Erro interno no servidor' });
+    }
+}
 
         const user = await knex('usuarios').where({ id });
 
