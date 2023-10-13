@@ -1,4 +1,4 @@
-<div align="center"><img src="./img/cubos store restful api.png" alt="o3LTMQ.png" width=700 border="0" /></a></div>
+<div align="center"><img src="./img/cubos store restful api.png" alt="cubos store restful api" width=700 border="0" /></a></div>
 <br>
 <br>
 <h1>Desafio final Cubos Academy - Backend</h1>
