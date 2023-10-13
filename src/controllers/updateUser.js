@@ -25,7 +25,7 @@ const updateUser = async (req, res) => {
 
     return res.status(200).json({ mensagem: 'O usuário foi atualizado com sucesso!' });
   } catch (error) {
-    return res.status(400).json({ mensagem: error.message });
+    return res.status(500).json({ mensagem: "Erro inesperado do servidor." });
   }
 };
 

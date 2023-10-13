@@ -21,7 +21,7 @@ const registerUser = async (req, res) => {
 
         return res.status(201).json({ mensagem: "O usuario foi cadastrado com sucesso!" });
     } catch (error) {
-        return res.status(400).json({ mensagem: error.message });
+        return res.status(500).json({ mensagem: "Erro inesperado do servidor." });
     }
 }
 

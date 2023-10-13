@@ -27,7 +27,7 @@ const login = async (req, res) => {
             token
         });
     } catch (error) {
-        return res.status(400).json({ mensagem: error.message });
+        return res.status(500).json({ mensagem: "Erro inesperado do servidor." });
     }
 }
 
