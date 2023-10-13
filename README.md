@@ -1,4 +1,4 @@
-<img src="./img/cubos store restful api.png" alt="o3LTMQ.png" border="0" /></a>
+<div align="center"><img src="./img/cubos store restful api.png" alt="o3LTMQ.png" width=700 border="0" /></a></div>
 <br>
 <br>
 <h1>Desafio final Cubos Academy - Backend</h1>
@@ -34,11 +34,14 @@ Para executar o projeto em sua máquina é necessário ter Node.js e Postgresql 
 > Execução do projeto:
 
 1- Faça um fork do projeto
+
 2- Clone o seu fork para sua máquina
+
 3- Execute o comando abaixo para instalar as dependêncaias de desenvolvimento:
 ```bash
 npm install
 ```
+
 4- Inicie o servidor com o comando:
 ```bash
 npm run dev
