@@ -88,3 +88,6 @@ ALTER TABLE usuarios
 ALTER COLUMN senha
 SET
 NOT NULL;
+
+ALTER TABLE categorias
+ADD CONSTRAINT descricao_limite_caracteres CHECK (LENGTH(descricao) <= 255);
