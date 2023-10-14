@@ -66,7 +66,7 @@ Link:
 Você pode testar localmente nosso projeto na porta 3000 utilizando o http://localhost:3000/. Recomendamos o Insomnia para os testes mas caso prefira é possível utilizar outra ferramenta.
 
 Rota para cadastro de usuários:
-<img src="./img/rota cadastrar usuário.png" alt="rota cadastrar usuário" border="0" />
+<img src="./img/rota cadastrar usuário.png" alt="rota cadastrar usuário" width=400 border="0" />
 
 ## Contribuições
 Se você deseja contribuir:
@@ -84,7 +84,7 @@ Agradecemos antecipadamente pelo interesse.
 ## Agradecimentos
 <div align="center">
 
-<img src="./img/agradecimentos.png" alt="agradecimentos" width=300 border="0" /> </div>
+<img src="./img/agradecimentos.png" alt="agradecimentos" width=400 border="0" /> </div>
 
 Agradecemos a nossa professora Isabella Nunes; nossa monitora Jules; os professores Guido Cerqueira, José Messias Junior e Guilherme Bernal; ao Potência Tech, iniciativa do iFood que nos conectou; e também a todos da Cubos Academy.
 
@@ -130,6 +130,10 @@ Agradecemos a nossa professora Isabella Nunes; nossa monitora Jules; os professo
 </table>
 
 ## Licença
-Este projeto esta sobe a licença [MIT licensed](./License).
+Este projeto esta sobe a licença [MIT](./License).
+
+---
+
+###### tags: `back-end` `nodeJS` `PostgreSQL` `API REST` `desafio` `API` `pdv` `cubos academy`
 
 
