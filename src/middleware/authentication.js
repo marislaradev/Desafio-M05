@@ -16,6 +16,10 @@ const verifyLogin = async (req, res, next) => {
 
         const user = await knex('usuarios').where({ id });
 
+        if (user.length === 0) {
+            return res.status(401).json({ mensagem: 'Usuário não autorizado' })
+        }
+
         const { senha: _, ...loggedUser } = user[0];
 
         req.user = loggedUser;
