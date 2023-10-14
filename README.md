@@ -66,7 +66,7 @@ Link:
 Você pode testar localmente nosso projeto na porta 3000 utilizando o http://localhost:3000/. Recomendamos o Insomnia para os testes mas caso prefira é possível utilizar outra ferramenta.
 
 Rota para cadastro de usuários:
-<img src="./img/rota cadastrar usuário.png" alt="rota cadastrar usuário" width=400 border="0" />
+<img src="./img/rota cadastrar usuário.png" alt="rota cadastrar usuário" width=600 border="0" />
 
 ## Contribuições
 Se você deseja contribuir:
@@ -121,7 +121,7 @@ Agradecemos a nossa professora Isabella Nunes; nossa monitora Jules; os professo
         </td>
         <td align="center">
             <a href="https://www.linkedin.com/in/paularml/">
-                <img src="https://media.licdn.com/dms/image/D4E03AQEWD0ss9HX79g/profile-displayphoto-shrink_800_800/0/1677164225411?e=1701302400&v=beta&t=uY12VoE8GGV7-7bhgq9sAhMO0A_CUqcwAFlBNTzhI6k" width="190px;" alt="Imagem de Paula Magalhães Leite" />
+                <img src="https://media.licdn.com/dms/image/D4E03AQEWD0ss9HX79g/profile-displayphoto-shrink_800_800/0/1677164225411?e=1701302400&v=beta&t=uY12VoE8GGV7-7bhgq9sAhMO0A_CUqcwAFlBNTzhI6k" width="195px;" alt="Imagem de Paula Magalhães Leite" />
                 <br />
                 <sub><b>Paula R. M. Leite</b></sub>
             </a>
@@ -131,6 +131,7 @@ Agradecemos a nossa professora Isabella Nunes; nossa monitora Jules; os professo
 
 ## Licença
 Este projeto esta sobe a licença [MIT](./License).
+<br>
 
 ---
 
