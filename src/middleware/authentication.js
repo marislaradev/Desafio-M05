@@ -4,8 +4,8 @@ const knex = require('../database/connection');
 const verifyLogin = async (req, res, next) => {
     const { authorization } = req.headers;
 
-    if (authorization === 'Bearer') {
-        return res.status(401).json({ mensagem: 'Usuário não autorizado.' })
+    if (!authorization) {
+        return res.status(401).json({ mensagem: 'Usuário não autorizado' })
     }
 
     const token = authorization.split(' ')[1];
@@ -22,7 +22,7 @@ const verifyLogin = async (req, res, next) => {
 
         next();
     } catch (error) {
-        return res.status(500).json({ mensagem: "Erro inesperado do servidor." });
+        return res.status(401).json({ mensagem: 'Usuário não autorizado.' })
     }
 };
 
