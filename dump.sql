@@ -65,3 +65,26 @@ RENAME COLUMN novo_email TO email;
 
 ALTER TABLE usuarios
 RENAME COLUMN novo_senha TO senha;
+
+-- nome, email, senha constraints
+
+ALTER TABLE usuarios
+ALTER COLUMN nome
+SET
+NOT NULL;
+
+ALTER TABLE usuarios
+ALTER COLUMN email
+SET
+NOT NULL;
+
+DELETE FROM usuarios
+WHERE email = 'flavia@gmail.com';
+
+ALTER TABLE usuarios
+ADD CONSTRAINT email_unico UNIQUE (email);
+
+ALTER TABLE usuarios
+ALTER COLUMN senha
+SET
+NOT NULL;
