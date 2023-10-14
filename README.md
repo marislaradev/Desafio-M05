@@ -123,10 +123,13 @@ Agradecemos a nossa professora Isabella Nunes; nossa monitora Jules; os professo
             <a href="https://www.linkedin.com/in/paularml/">
                 <img src="https://media.licdn.com/dms/image/D4E03AQEWD0ss9HX79g/profile-displayphoto-shrink_800_800/0/1677164225411?e=1701302400&v=beta&t=uY12VoE8GGV7-7bhgq9sAhMO0A_CUqcwAFlBNTzhI6k" width="190px;" alt="Imagem de Paula Magalhães Leite" />
                 <br />
-                <sub><b>Paula Rodrigues Magalhães Leite</b></sub>
+                <sub><b>Paula R. M. Leite</b></sub>
             </a>
         </td>
     </tr>
 </table>
+
+## Licença
+Este projeto esta sobe a licença [MIT licensed](./License).
 
 
