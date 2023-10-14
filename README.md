@@ -86,7 +86,47 @@ Agradecemos antecipadamente pelo interesse.
 
 <img src="./img/agradecimentos.png" alt="agradecimentos" width=300 border="0" /> </div>
 
-Agradecemos a nossa professora Isabella Nunes; nossa monitora Jules; os professores Guido Cerqueira e José Messias Junior; ao Potência Tech, iniciativa do iFood que nos conectou; e também a todos da Cubos Academy.
+Agradecemos a nossa professora Isabella Nunes; nossa monitora Jules; os professores Guido Cerqueira, José Messias Junior e Guilherme Bernal; ao Potência Tech, iniciativa do iFood que nos conectou; e também a todos da Cubos Academy.
 
 ## Autoras
+<table>
+    <tr>
+        <td align="center">
+            <a href="https://www.linkedin.com/in/aline-santana-silva/">
+                <img src="https://media.licdn.com/dms/image/D4D03AQFmMfdgL6ilDQ/profile-displayphoto-shrink_800_800/0/1688769183184?e=1702512000&v=beta&t=Ydu24qiJy9QphPgVJC0S2gegWibZ4H_itxWUPW2eF9s" width="190px;" alt="Aline Santana" />
+                <br />
+                <sub><b>Aline Santana</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://www.linkedin.com/in/bruna-fraga-dev/">
+                <img src="https://media.licdn.com/dms/image/D4D03AQFwtxfK4pHjrA/profile-displayphoto-shrink_800_800/0/1694603552783?e=1702512000&v=beta&t=DiyB_N8ylrgvCo-y_qjfpvURG0jvtkaijMf49DLqKDI" width="190px;" alt="Bruna Fraga" />
+                <br />
+                <sub><b>Bruna Fraga</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://www.linkedin.com/in/gabriela-thially-69771b221/">
+                <img src="https://media.licdn.com/dms/image/D4D03AQGxgT5VrUUSKQ/profile-displayphoto-shrink_800_800/0/1688770932594?e=1702512000&v=beta&t=ibYzYd11mQG4jXoubVJxfI51EjGVULSypygVoaEvkiM" width="190px;" alt="Gabriela Thially" />
+                <br />
+                <sub><b>Gabriela Thially</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://www.linkedin.com/in/mariana-da-silva-lara-380871285/">
+                <img src="https://media.licdn.com/dms/image/D4E03AQEdlFZabXQy2g/profile-displayphoto-shrink_800_800/0/1690531354020?e=1702512000&v=beta&t=mFuvVTFXFXqxxGBT913dJRoSQMSyPpWOQm5sg3vvMvA" width="190px;" alt="Mariana da Silva Lara" />
+                <br />
+                <sub><b>Mariana da Silva Lara</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://www.linkedin.com/in/paularml/">
+                <img src="https://media.licdn.com/dms/image/D4E03AQEWD0ss9HX79g/profile-displayphoto-shrink_800_800/0/1677164225411?e=1701302400&v=beta&t=uY12VoE8GGV7-7bhgq9sAhMO0A_CUqcwAFlBNTzhI6k" width="190px;" alt="Imagem de Paula Magalhães Leite" />
+                <br />
+                <sub><b>Paula Rodrigues Magalhães Leite</b></sub>
+            </a>
+        </td>
+    </tr>
+</table>
+
 
