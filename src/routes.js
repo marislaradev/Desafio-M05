@@ -14,7 +14,7 @@ const routes = express();
 
 routes.get('/categoria', listCategories);
 
-routes.post('/usuario', registerUser);
+routes.post('/usuario', validateRequestBody(schemaUser), registerUser);
 routes.post('/login', validateRequestBody(schemaLogin), login);
 
 routes.use(verifyLogin);
