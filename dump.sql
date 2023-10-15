@@ -9,7 +9,7 @@ CREATE TABLE usuarios
 CREATE TABLE categorias
 (
     id SERIAL PRIMARY KEY,
-    descricao TEXT NOT NULL
+    descricao VARCHAR(255) NOT NULL
 );
 
 INSERT INTO categorias
@@ -78,9 +78,6 @@ ALTER COLUMN email
 SET
 NOT NULL;
 
-DELETE FROM usuarios
-WHERE email = 'flavia@gmail.com';
-
 ALTER TABLE usuarios
 ADD CONSTRAINT email_unico UNIQUE (email);
 
@@ -88,6 +85,3 @@ ALTER TABLE usuarios
 ALTER COLUMN senha
 SET
 NOT NULL;
-
-ALTER TABLE categorias
-ADD CONSTRAINT descricao_limite_caracteres CHECK (LENGTH(descricao) <= 255);
