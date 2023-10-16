@@ -6,6 +6,14 @@ const updateUser = async (req, res) => {
   const userId = req.user.id;
 
   try {
+  
+    const whiteSpace = (str) => {
+      return str.trim().length === 0;
+    };
+
+    if (whiteSpace(nome) || whiteSpace(email) || whiteSpace(senha)) {
+      return res.status(400).json({ mensagem: 'Não foram preenchidos todos os campos' });
+    }
 
     const verifyEmailUnique = await knex('usuarios').where({ email }).andWhere('id', '!=', userId);
 
