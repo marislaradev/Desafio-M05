@@ -6,8 +6,16 @@ const updateUser = async (req, res) => {
   const userId = req.user.id;
 
   try {
+  
+    const whiteSpace = (str) => {
+      return str.trim().length === 0;
+    };
 
-    const verifyEmailUnique = await knex('usuarios').where({ email });
+    if (whiteSpace(nome) || whiteSpace(email) || whiteSpace(senha)) {
+      return res.status(400).json({ mensagem: 'Não foram preenchidos todos os campos' });
+    }
+
+    const verifyEmailUnique = await knex('usuarios').where({ email }).andWhere('id', '!=', userId);
 
     if (verifyEmailUnique.length > 0) {
       return res.status(400).json({ mensagem: 'Email já existe' });
@@ -20,12 +28,12 @@ const updateUser = async (req, res) => {
       .update({ nome, email, senha: encryptedPassword });
 
     if (updateUser !== 1) {
-      return res.status(400).json({ mensagem: 'O Usuário não foi atualizado' });
+      return res.status(400).json({ mensagem: 'O usuário não foi atualizado' });
     }
 
-    return res.status(200).json({ mensagem: 'O Usuário foi atualizado com sucesso!' });
+    return res.status(200).json({ mensagem: 'O usuário foi atualizado com sucesso!' });
   } catch (error) {
-    return res.status(400).json({ mensagem: error.message });
+    return res.status(500).json({ mensagem: "Erro inesperado do servidor." });
   }
 };
 
