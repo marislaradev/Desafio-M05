@@ -9,7 +9,6 @@ const validateRequestBody = require('./middleware/validateRequestBody');
 const schemaLogin = require('./schemas/schemaLogin');
 const schemaUser = require('./schemas/schemaUser');
 
-
 const routes = express();
 
 routes.get('/categoria', listCategories);

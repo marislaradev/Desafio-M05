@@ -9,7 +9,7 @@ CREATE TABLE usuarios
 CREATE TABLE categorias
 (
     id SERIAL PRIMARY KEY,
-    descricao TEXT NOT NULL
+    descricao VARCHAR(255) NOT NULL
 );
 
 INSERT INTO categorias
@@ -65,3 +65,23 @@ RENAME COLUMN novo_email TO email;
 
 ALTER TABLE usuarios
 RENAME COLUMN novo_senha TO senha;
+
+-- nome, email, senha constraints
+
+ALTER TABLE usuarios
+ALTER COLUMN nome
+SET
+NOT NULL;
+
+ALTER TABLE usuarios
+ALTER COLUMN email
+SET
+NOT NULL;
+
+ALTER TABLE usuarios
+ADD CONSTRAINT email_unico UNIQUE (email);
+
+ALTER TABLE usuarios
+ALTER COLUMN senha
+SET
+NOT NULL;

@@ -7,6 +7,14 @@ const updateUser = async (req, res) => {
 
   try {
 
+    const whiteSpace = (str) => {
+      return str.trim().length === 0;
+    };
+
+    if (whiteSpace(nome) || whiteSpace(email) || whiteSpace(senha)) {
+      return res.status(400).json({ mensagem: 'Um ou mais campos foram preenchidos com espaços em branco' });
+    }
+
     const verifyEmailUnique = await knex('usuarios').where({ email }).andWhere('id', '!=', userId);
 
     if (verifyEmailUnique.length > 0) {
