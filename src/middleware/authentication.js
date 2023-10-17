@@ -24,6 +24,7 @@ const verifyLogin = async (req, res, next) => {
         req.user = loggedUser;
 
         next();
+
     } catch (error) {
         return res.status(401).json({ mensagem: 'Usuário não autorizado.' });
     }
