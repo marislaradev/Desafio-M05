@@ -13,17 +13,22 @@ const schemaNewClient = joi.object({
             'string.max': 'Campo nome não pode ter mais de {#limit} caracteres.',
             'string.pattern.base': 'Campo nome deve conter apenas letras e espaços.'
         }),
-    email: joi.string().email().required().messages({
-        'string.email': 'O email precisa ter um formato válido',
-        'any.required': 'Campo email é obrigatório',
-        'string.empty': 'Campo email é obrigatório'
-    }),
-    cpf: joi.string().regex(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/).messages({
-        'any.required': 'Campo CPF é obrigatório',
-        'string.empty': 'Campo CPF é obrigatório',
-        'string.pattern.base': 'Campo CPF deve estar no formato 123.456.789-09'
+    email: joi.string()
+        .email()
+        .required()
+        .messages({
+            'string.email': 'O email precisa ter um formato válido',
+            'any.required': 'Campo email é obrigatório',
+            'string.empty': 'Campo email é obrigatório'
+        }),
+    cpf: joi.string()
+        .required()
+        .regex(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/).messages({
+            'any.required': 'Campo CPF é obrigatório',
+            'string.empty': 'Campo CPF é obrigatório',
+            'string.pattern.base': 'Campo CPF deve estar no formato 123.456.789-09'
 
-    }),
+        }),
     cep: joi.string()
         .regex(/^\d{5}-\d{3}$/)
         .max(9)
