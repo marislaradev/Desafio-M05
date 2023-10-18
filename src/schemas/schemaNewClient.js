@@ -29,16 +29,18 @@ const schemaNewClient = joi.object({
             'any.required': 'Campo CPF é obrigatório',
             'string.empty': 'Campo CPF é obrigatório',
             'string.pattern.base': 'Campo CPF deve estar no formato 123.456.789-09',
-            'string.max': 'Campo CPF não pode ter mais de {#limit} caracteres.',
             'string.min': 'Campo CPF deve ter pelo menos {#limit} caracteres.',
+            'string.max': 'Campo CPF não pode ter mais de {#limit} caracteres.',
 
         }),
     cep: joi.string()
         .regex(/^\d{5}-\d{3}$/)
+        .min(9)
         .max(9)
         .messages({
             'string.pattern.base': 'Campo CEP deve estar no formato 12345-678',
-            'string.max': 'Campo CEP não pode ter mais de {#limit} caracteres.',
+            'string.min': 'Campo CPF deve ter pelo menos {#limit} caracteres.',
+            'string.max': 'Campo CEP não pode ter mais de {#limit} caracteres.'
         }),
     rua: joi.string()
         .max(255)
