@@ -2,45 +2,37 @@ const joi = require('joi');
 
 const schemaNewClient = joi.object({
     nome: joi.string()
-        .min(3)
-        .max(100)
         .required()
         .regex(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/)
+        .min(3)
+        .max(100)
         .messages({
-            'any.required': 'Campo nome é obrigatório',
-            'string.empty': 'Campo nome não pode estar vazio',
+            'string.empty': 'Campo nome não pode estar vazio.',
+            'any.required': 'Campo nome é obrigatório.',
+            'string.pattern.base': 'Campo nome deve conter apenas letras e espaços.',
             'string.min': 'Campo nome deve ter pelo menos {#limit} caracteres.',
-            'string.max': 'Campo nome não pode ter mais de {#limit} caracteres.',
-            'string.pattern.base': 'Campo nome deve conter apenas letras e espaços.'
+            'string.max': 'Campo nome não pode ter mais de {#limit} caracteres.'
         }),
     email: joi.string()
         .email()
         .required()
         .messages({
-            'string.email': 'O email precisa ter um formato válido',
-            'any.required': 'Campo email é obrigatório',
-            'string.empty': 'Campo email é obrigatório'
+            'string.empty': 'Campo email é obrigatório.',
+            'any.required': 'Campo email é obrigatório.',
+            'string.email': 'O email precisa ter um formato válido.'
         }),
     cpf: joi.string()
         .required()
-        .min(14)
-        .max(14)
-        .regex(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/).messages({
-            'any.required': 'Campo CPF é obrigatório',
-            'string.empty': 'Campo CPF é obrigatório',
-            'string.pattern.base': 'Campo CPF deve estar no formato 123.456.789-09',
-            'string.min': 'Campo CPF deve ter pelo menos {#limit} caracteres.',
-            'string.max': 'Campo CPF não pode ter mais de {#limit} caracteres.',
-
+        .regex(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)
+        .messages({
+            'string.empty': 'Campo CPF é obrigatório.',
+            'any.required': 'Campo CPF é obrigatório.',
+            'string.pattern.base': 'Campo CPF deve estar no formato 123.456.789-09'
         }),
     cep: joi.string()
         .regex(/^\d{5}-\d{3}$/)
-        .min(9)
-        .max(9)
         .messages({
-            'string.pattern.base': 'Campo CEP deve estar no formato 12345-678',
-            'string.min': 'Campo CPF deve ter pelo menos {#limit} caracteres.',
-            'string.max': 'Campo CEP não pode ter mais de {#limit} caracteres.'
+            'string.pattern.base': 'Campo CEP deve estar no formato 12345-678'
         }),
     rua: joi.string()
         .max(255)
@@ -54,27 +46,28 @@ const schemaNewClient = joi.object({
         .messages({
             'number.base': 'Campo número da casa deve ser um número inteiro.'
         }),
-    bairo: joi.string()
-        .max(255)
+    bairro: joi.string()
         .regex(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/)
+        .max(255)
         .messages({
-            'string.max': 'Campo bairro não pode ter mais de {#limit} caracteres.',
-            'string.pattern.base': 'Campo bairro deve conter apenas letras e espaços.'
+            'string.pattern.base': 'Campo bairro deve conter apenas letras e espaços.',
+            'string.max': 'Campo bairro não pode ter mais de {#limit} caracteres.'
         }),
     cidade: joi.string()
-        .max(255)
         .regex(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/)
+        .max(255)
         .messages({
-            'string.max': 'Campo cidade não pode ter mais de {#limit} caracteres.',
-            'string.pattern.base': 'Campo cidade deve conter apenas letras e espaços.'
+            'string.pattern.base': 'Campo cidade deve conter apenas letras e espaços.',
+            'string.max': 'Campo cidade não pode ter mais de {#limit} caracteres.'
         }),
     estado: joi.string()
+        .regex(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/)
         .min(2)
-        .max(100).regex(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/)
+        .max(100)
         .messages({
+            'string.pattern.base': 'Campo estado deve conter apenas letras e espaços.',
             'string.min': 'Campo estado deve ter pelo menos {#limit} caracteres.',
-            'string.max': 'Campo estado não pode ter mais de {#limit} caracteres.',
-            'string.pattern.base': 'Campo estado deve conter apenas letras e espaços.'
+            'string.max': 'Campo estado não pode ter mais de {#limit} caracteres.'
         }),
 });
 
