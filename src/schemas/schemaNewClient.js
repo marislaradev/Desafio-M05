@@ -3,6 +3,7 @@ const joi = require('joi');
 const schemaNewClient = joi.object({
     nome: joi.string()
         .required()
+        .trim()
         .regex(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/)
         .min(3)
         .max(100)
@@ -14,6 +15,7 @@ const schemaNewClient = joi.object({
             'string.max': 'Campo nome não pode ter mais de {#limit} caracteres.'
         }),
     email: joi.string()
+        .trim()
         .email()
         .required()
         .messages({
@@ -32,24 +34,28 @@ const schemaNewClient = joi.object({
     cep: joi.string()
         .regex(/^\d{5}-\d{3}$/)
         .messages({
+            'string.empty': 'Campo CEP deve estar no formato 12345-678',
             'string.pattern.base': 'Campo CEP deve estar no formato 12345-678'
         }),
     rua: joi.string()
         .max(255)
         .regex(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/)
         .messages({
+            'string.empty': 'Campo rua deve conter apenas letras e espaços.',
             'string.max': 'Campo rua não pode ter mais de {#limit} caracteres.',
             'string.pattern.base': 'Campo rua deve conter apenas letras e espaços.'
         }),
     numero: joi.number()
         .integer()
         .messages({
+            'string.empty': 'Campo número da casa deve ser um número inteiro.',
             'number.base': 'Campo número da casa deve ser um número inteiro.'
         }),
     bairro: joi.string()
         .regex(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/)
         .max(255)
         .messages({
+            'string.empty': 'Campo número da casa deve ser um número inteiro.',
             'string.pattern.base': 'Campo bairro deve conter apenas letras e espaços.',
             'string.max': 'Campo bairro não pode ter mais de {#limit} caracteres.'
         }),
@@ -57,6 +63,7 @@ const schemaNewClient = joi.object({
         .regex(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/)
         .max(255)
         .messages({
+            'string.empty': 'Campo número da casa deve ser um número inteiro.',
             'string.pattern.base': 'Campo cidade deve conter apenas letras e espaços.',
             'string.max': 'Campo cidade não pode ter mais de {#limit} caracteres.'
         }),
@@ -65,6 +72,7 @@ const schemaNewClient = joi.object({
         .min(2)
         .max(100)
         .messages({
+            'string.empty': 'Campo número da casa deve ser um número inteiro.',
             'string.pattern.base': 'Campo estado deve conter apenas letras e espaços.',
             'string.min': 'Campo estado deve ter pelo menos {#limit} caracteres.',
             'string.max': 'Campo estado não pode ter mais de {#limit} caracteres.'
