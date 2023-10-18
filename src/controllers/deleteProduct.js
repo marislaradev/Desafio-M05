@@ -1,7 +1,7 @@
 const knex = require('../database/connection');
 
 const deleteProduct = async (req, res) => {
-    const { id } = request.params;
+    const { id } = req.params;
 
     try {
         const validId = await knex('produtos')
