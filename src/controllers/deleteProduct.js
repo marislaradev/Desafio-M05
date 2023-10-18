@@ -8,7 +8,7 @@ const deleteProduct = async (req, res) => {
             .where({ id });
 
         if (validId.length === 0) {
-            return res.status(404).json({ mensagem: 'O servidor não pode encontrar o recurso solicitado' });
+            return res.status(404).json({ mensagem: 'O servidor não pode encontrar o recurso solicitado.' });
         }
         await knex('produtos').del().where({ id });
 
