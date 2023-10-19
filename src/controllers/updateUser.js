@@ -8,7 +8,7 @@ const updateUser = async (req, res) => {
   try {
 
     const whiteSpace = (str) => {
-      return str.trim().length === 0;
+      return str.trim() === '';
     };
 
     if (whiteSpace(nome) || whiteSpace(email) || whiteSpace(senha)) {
