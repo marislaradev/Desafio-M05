@@ -39,9 +39,9 @@ const schemaNewClient = joi.object({
         }),
     rua: joi.string()
         .max(255)
-        .regex(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/)
+        .trim()
         .messages({
-            'string.empty': 'Campo rua deve conter apenas letras e espaços.',
+            'string.empty': 'Campo rua deve conter letras e espaços.',
             'string.max': 'Campo rua não pode ter mais de {#limit} caracteres.',
             'string.pattern.base': 'Campo rua deve conter apenas letras e espaços.'
         }),
@@ -54,25 +54,28 @@ const schemaNewClient = joi.object({
     bairro: joi.string()
         .regex(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/)
         .max(255)
+        .trim()
         .messages({
-            'string.empty': 'Campo número da casa deve ser um número inteiro.',
+            'string.empty': 'Campo bairro deve conter letras e espaços.',
             'string.pattern.base': 'Campo bairro deve conter apenas letras e espaços.',
             'string.max': 'Campo bairro não pode ter mais de {#limit} caracteres.'
         }),
     cidade: joi.string()
         .regex(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/)
         .max(255)
+        .trim()
         .messages({
-            'string.empty': 'Campo número da casa deve ser um número inteiro.',
+            'string.empty': 'Campo cidade deve conter letras e espaços.',
             'string.pattern.base': 'Campo cidade deve conter apenas letras e espaços.',
             'string.max': 'Campo cidade não pode ter mais de {#limit} caracteres.'
         }),
     estado: joi.string()
         .regex(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/)
         .min(2)
+        .trim()
         .max(100)
         .messages({
-            'string.empty': 'Campo número da casa deve ser um número inteiro.',
+            'string.empty': 'Campo estado deve conter letras e espaços.',
             'string.pattern.base': 'Campo estado deve conter apenas letras e espaços.',
             'string.min': 'Campo estado deve ter pelo menos {#limit} caracteres.',
             'string.max': 'Campo estado não pode ter mais de {#limit} caracteres.'
