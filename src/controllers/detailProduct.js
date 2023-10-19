@@ -11,7 +11,7 @@ const detailProduct = async (req, res) => {
         }
 
         const product = await knex('produtos')
-            .where('id', parsedProductId)
+            .where('id',  integerProductId)
             .first();
 
         if (!product) {
