@@ -6,7 +6,7 @@ const updateUser = async (req, res) => {
   const userId = req.user.id;
 
   try {
-  
+
     const whiteSpace = (str) => {
       return str.trim() === '';
     };
