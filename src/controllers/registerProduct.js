@@ -1,5 +1,3 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 const knex = require('../database/connection');
 
 const registerProduct = async (req, res) => {
@@ -7,14 +5,6 @@ const registerProduct = async (req, res) => {
 
 
     try {
-        // const whiteSpace = (str) => {
-        //     return str.trim().length === 0;
-        // };
-    
-        // if (whiteSpace(descricao) || whiteSpace(quantidade_estoque) || whiteSpace(valor) || whiteSpace(categoria_id)) {
-        //     return res.status(400).json({ mensagem: 'Um ou mais campos foram preenchidos com espaços em branco' });
-        // } -> ALINE, é necessário colocar essa parte de verificar espaço em branco?
-
         const verifyCategory = await knex('categorias')
         .where({ id: categoria_id })
         .first();
