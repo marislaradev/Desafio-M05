@@ -15,7 +15,7 @@ const registerNewClient = async (req, res) => {
 
         if (verifyCpfUnique.length > 0) {
             return res.status(400).json({ mensagem: 'CPF já existe.' });
-        } //duvida: pode juntar com email
+        }
 
         const client = await knex.insert({ nome, email, cpf, cep, rua, numero, bairro, cidade, estado }).into('clientes');
 
