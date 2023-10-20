@@ -70,12 +70,19 @@ Aqui está uma lista das principais rotas da API:
 
 | Método | Rota                              | Descrição                                          |
 | ------ | --------------------------------- | -------------------------------------------------- |
-| `GET`   | `/categoria`                     | Autenticação de usuários.                         |
-| POST   | `/user/create`                    | Criar um novo usuário.                            |
-| GET    | `/user`                           | Listar todos os usuários.                        |
-| GET    | `/user/:id`                       | Obter informações de um usuário por ID.          |
-| PATCH  | `/user/:id`                       | Atualizar informações de um usuário por ID.      |
-| GET    | `/news`                           | Listar todas as notícias.                        |
+| `GET`   | `/categoria`                     | Lista as categorias de produtos.                         |
+| `POST`   | `/usuario`                    | Criar um novo usuário. Preencher no Json os campos nome, email e senha.                            |
+| `POST`    | `/login`                           | Faz login do usuário. Preencher no Json email e senha.                        |
+|  
+       Todas as rotas a seguir exigem o token de autenticação do usuário logado no header com o formato Bearer Token. Portanto, será necessário validar o token informado.                                  
+|  |                               |                                           |
+| ------ | --------------------------------- | -------------------------------------------------- |
+| `GET`   | `/usuario`                     | Lista dados do usuáro logado.                         |
+| `PUT`   | `/usuario`                    | Altera dados do usuário logado. Preencher no Json nome, email e senha a serem alterados. usuário.                            |
+| `POST`    | `/produto`                           | permite o usuário logado cadastrar um novo produto no sistema.                        |
+| `PUT`    | `/produto/:id`                       | Permite o usuário logado a atualizar as informações de um produto cadastrado.          |
+| `GET`  | `/produto`                       |  Lista todos os produtos cadastrados.      |
+| `GET`    | `/produto/:id`                           | permite o usuário logado obter um de seus produtos cadastrados.                        |
 | GET    | `/news/top`                       | Listar as notícias mais populares.               |
 | GET    | `/news/search`                    | Buscar notícias por título.                     |
 | POST   | `/news/create`                    | Criar uma nova notícia (requer autenticação).    |
@@ -88,10 +95,6 @@ Aqui está uma lista das principais rotas da API:
 | PATCH  | `/news/comment/:idNews/:idComment`| Excluir um comentário de uma notícia por IDs.  |
 | GET    | `/doc`                            | Acessar a documentação da API (Swagger UI).     |
 
-
-#### `GET` `/categoria`
-#### `POST` `/usuario` : preencher no Json os campos nome, email e senha.
-#### `POST` `/login` : preencher no Json email e senha.
 #### Todas as rotas a seguir exigem o token de autenticação do usuário logado no header com o formato Bearer Token. Portanto, será necessário validar o token informado.
 #### `GET` `/usuario`
 #### `PUT` `/usuario` : preencher no Json nome, email e senha a serem alterados.
