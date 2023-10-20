@@ -39,6 +39,8 @@ routes.post('/produto', validateRequestBody(schemaProduct), registerProduct);
 
 routes.put('/produto/:id', validateRequestBody(schemaProduct), updateProduct); 
 
+routes.put('/produto/:id', validateRequestBody(schemaProduct), updateProduct); 
+
 routes.get('/produto/:id', detailProduct);
 
 routes.delete('/produto/:id', deleteProduct);
