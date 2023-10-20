@@ -73,32 +73,27 @@ Aqui está uma lista das principais rotas da API:
 | `GET`   | `/categoria`                     | Lista as categorias de produtos.                         |
 | `POST`   | `/usuario`                    | Criar um novo usuário. Preencher no Json os campos nome, email e senha.                            |
 | `POST`    | `/login`                           | Faz login do usuário. Preencher no Json email e senha.                        |
-|  
-       Todas as rotas a seguir exigem o token de autenticação do usuário logado no header com o formato Bearer Token. Portanto, será necessário validar o token informado.                                  
-|  |                               |                                           |
+  
+       Todas as rotas a seguir exigem o token de autenticação do usuário logado no header com o formato Bearer Token. Portanto, será necessário validar o token informado.
+
+|        |                                   |                                                              |
 | ------ | --------------------------------- | -------------------------------------------------- |
 | `GET`   | `/usuario`                     | Lista dados do usuáro logado.                         |
 | `PUT`   | `/usuario`                    | Altera dados do usuário logado. Preencher no Json nome, email e senha a serem alterados. usuário.                            |
 | `POST`    | `/produto`                           | permite o usuário logado cadastrar um novo produto no sistema.                        |
-| `PUT`    | `/produto/:id`                       | Permite o usuário logado a atualizar as informações de um produto cadastrado.          |
+| `PUT`    | `/produto/:id`                       | Permite o usuário logado a atualizar as informações de um produto cadastrado.                         |
 | `GET`  | `/produto`                       |  Lista todos os produtos cadastrados.      |
-| `GET`    | `/produto/:id`                           | permite o usuário logado obter um de seus produtos cadastrados.                        |
-| GET    | `/news/top`                       | Listar as notícias mais populares.               |
-| GET    | `/news/search`                    | Buscar notícias por título.                     |
-| POST   | `/news/create`                    | Criar uma nova notícia (requer autenticação).    |
-| GET    | `/news/byUser`                    | Listar notícias de um usuário específico.        |
-| GET    | `/news/findById/:id`              | Obter informações de uma notícia por ID.         |
-| PATCH  | `/news/:id`                       | Atualizar informações de uma notícia por ID.     |
-| DELETE | `/news/:id`                       | Excluir uma notícia por ID.                     |
-| PATCH  | `/news/like/:id`                  | Curtir uma notícia por ID (requer autenticação). |
-| PATCH  | `/news/comment/:id`               | Adicionar um comentário a uma notícia por ID.   |
-| PATCH  | `/news/comment/:idNews/:idComment`| Excluir um comentário de uma notícia por IDs.  |
-| GET    | `/doc`                            | Acessar a documentação da API (Swagger UI).     |
+| `GET`    | `/produto/:id`                           | permite o usuário logado obter um de seus produtos cadastrados.
+| `POST`    | `/login`                           | *Faz login do usuário. Preencher no Json email e senha.                        |
+| `GET`   | `/categoria`                     | Lista as categorias de produtos.                         |
+| `POST`   | `/usuario`                    | Criar um novo usuário. Preencher no Json os campos nome, email e senha.                            |
+| `POST`    | `/login`                           | Faz login do usuário. Preencher no Json email e senha.                        |
+| `GET`   | `/categoria`                     | Lista as categorias de produtos.                         |
+| `POST`   | `/usuario`                    | Criar um novo usuário. Preencher no Json os campos nome, email e senha.                            |
+| `POST`    | `/login`                           | Faz login do usuário. Preencher no Json email e senha.                        |
 
-#### Todas as rotas a seguir exigem o token de autenticação do usuário logado no header com o formato Bearer Token. Portanto, será necessário validar o token informado.
-#### `GET` `/usuario`
-#### `PUT` `/usuario` : preencher no Json nome, email e senha a serem alterados.
 
+<br>
 
 Abaixo exemplo de teste da rota cadastro de usuários no Insomnia:
 <img src="./img/rota cadastrar usuário.png" alt="rota cadastrar usuário" width=670 border="0" />
