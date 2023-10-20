@@ -50,7 +50,7 @@ Para executar o projeto em sua máquina é necessário ter Node.js e Postgresql 
 npm install
 ```
 
-4- Inicie o servidor com o comando:
+4- Verifique o funcionamento do servidor com o comando:
 ```bash
 npm run dev
 ```
@@ -60,11 +60,41 @@ Algo como a imagem abaixo deve aparecer no seu terminal indicando que o servidor
 <img src="./img/terminal server.png" alt="terminal" border="0" />
 
 ## Testando
-Recomendamos o Insomnia para os testes mas caso prefira é possível utilizar outras ferramentas. Você pode testar nosso projeto em sua máquina utilizando a URL:  https://modern-gray-purse.cyclic.app/ com as seguintes rotas:
+Recomendamos o Insomnia para os testes mas caso prefira é possível utilizar outras ferramentas. Você pode testar nosso projeto em sua máquina utilizando:
 
-#### `GET` `/categoria`
-#### `POST` `/usuario` : preencher no Json os campos nome, email e senha.
-#### `POST` `/login` : preencher no Json email e senha.
+http://localhost:3000 (para teste local) 
+
+https://modern-gray-purse.cyclic.app/ (para teste remoto)
+
+Aqui está uma lista das principais rotas da API:
+
+| Método | Rota                              | Descrição                                          |
+| ------ | --------------------------------- | -------------------------------------------------- |
+| `GET`   | `/categoria`                     | Lista as categorias de produtos.                         |
+| `POST`   | `/usuario`                    | Criar um novo usuário. Preencher no Json os campos nome, email e senha.                            |
+| `POST`    | `/login`                           | Faz login do usuário. Preencher no Json email e senha.                        |
+|  
+       Todas as rotas a seguir exigem o token de autenticação do usuário logado no header com o formato Bearer Token. Portanto, será necessário validar o token informado.                                  
+|  |                               |                                           |
+| ------ | --------------------------------- | -------------------------------------------------- |
+| `GET`   | `/usuario`                     | Lista dados do usuáro logado.                         |
+| `PUT`   | `/usuario`                    | Altera dados do usuário logado. Preencher no Json nome, email e senha a serem alterados. usuário.                            |
+| `POST`    | `/produto`                           | permite o usuário logado cadastrar um novo produto no sistema.                        |
+| `PUT`    | `/produto/:id`                       | Permite o usuário logado a atualizar as informações de um produto cadastrado.          |
+| `GET`  | `/produto`                       |  Lista todos os produtos cadastrados.      |
+| `GET`    | `/produto/:id`                           | permite o usuário logado obter um de seus produtos cadastrados.                        |
+| GET    | `/news/top`                       | Listar as notícias mais populares.               |
+| GET    | `/news/search`                    | Buscar notícias por título.                     |
+| POST   | `/news/create`                    | Criar uma nova notícia (requer autenticação).    |
+| GET    | `/news/byUser`                    | Listar notícias de um usuário específico.        |
+| GET    | `/news/findById/:id`              | Obter informações de uma notícia por ID.         |
+| PATCH  | `/news/:id`                       | Atualizar informações de uma notícia por ID.     |
+| DELETE | `/news/:id`                       | Excluir uma notícia por ID.                     |
+| PATCH  | `/news/like/:id`                  | Curtir uma notícia por ID (requer autenticação). |
+| PATCH  | `/news/comment/:id`               | Adicionar um comentário a uma notícia por ID.   |
+| PATCH  | `/news/comment/:idNews/:idComment`| Excluir um comentário de uma notícia por IDs.  |
+| GET    | `/doc`                            | Acessar a documentação da API (Swagger UI).     |
+
 #### Todas as rotas a seguir exigem o token de autenticação do usuário logado no header com o formato Bearer Token. Portanto, será necessário validar o token informado.
 #### `GET` `/usuario`
 #### `PUT` `/usuario` : preencher no Json nome, email e senha a serem alterados.
@@ -128,7 +158,7 @@ Agradecemos a nossa professora Isabella Nunes; nossa monitora Jules; os professo
         </td>
         <td align="center">
             <a href="https://www.linkedin.com/in/paularml/" target="_blank">
-                <img src="https://media.licdn.com/dms/image/D4E03AQEWD0ss9HX79g/profile-displayphoto-shrink_800_800/0/1677164225411?e=1701302400&v=beta&t=uY12VoE8GGV7-7bhgq9sAhMO0A_CUqcwAFlBNTzhI6k" width="195px;" alt="Imagem de Paula Magalhães Leite" />
+                <img src="https://media.licdn.com/dms/image/D4D03AQE3oc_qqvdPEw/profile-displayphoto-shrink_800_800/0/1697671749779?e=1703116800&v=beta&t=5M4947LwzcV6CZcij3TbmGi7RL0BZNnJBNeTsGfy_qs" width="195px;" alt="Imagem de Paula Magalhães Leite" />
                 <br />
                 <sub><b>Paula R. M. Leite</b></sub>
             </a>
