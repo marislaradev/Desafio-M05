@@ -32,7 +32,9 @@ routes.post('/cliente', validateRequestBody(schemaNewClient), registerNewClient)
 
 routes.get('/cliente/:id', detailClient);
 
-routes.post('/produto', validateRequestBody(schemaProduct), registerProduct); 
+routes.post('/produto', validateRequestBody(schemaProduct), registerProduct);
+
+routes.put('/produto/:id', validateRequestBody(schemaProduct), updateProduct); 
 
 routes.get('/produto/:id', detailProduct);
 
