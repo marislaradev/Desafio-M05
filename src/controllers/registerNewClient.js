@@ -1,4 +1,3 @@
-const bcrypt = require('bcrypt');
 const knex = require('../database/connection');
 
 const registerNewClient = async (req, res) => {
