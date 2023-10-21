@@ -1,6 +1,6 @@
 const knex = require('../database/connection');
 
-const editCustomerData = async (req, res) => {
+const updateClient = async (req, res) => {
     const { id } = req.params;
     const { nome, email, cpf, cep, rua, numero, bairro, cidade, estado } = req.body;
 
@@ -10,7 +10,7 @@ const editCustomerData = async (req, res) => {
         .first();
 
         if (!verifyCustomerId) {
-            return res.status(404).json({ mensagem: 'O id informado não pertence a um usuário cadastrado' });
+            return res.status(404).json({ mensagem: 'O id informado não pertence a um cliente cadastrado' });
         }
 
         if (email) {
@@ -20,7 +20,7 @@ const editCustomerData = async (req, res) => {
             .first();
 
             if (verifyEmailUnique) {
-                return res.status(404).json({ mensagem: 'O email informado já pertence a outro usuário cadastrado' });
+                return res.status(404).json({ mensagem: 'O email informado já pertence a outro cliente cadastrado' });
             }
         }
 
@@ -31,7 +31,7 @@ const editCustomerData = async (req, res) => {
             .first();
 
             if (verifyCpfUnique) {
-                return res.status(404).json({ mensagem: 'O cpf informado já pertence a outro usuário cadastrado' });
+                return res.status(404).json({ mensagem: 'O cpf informado já pertence a outro cliente cadastrado' });
             }
         }
 
@@ -55,4 +55,4 @@ const editCustomerData = async (req, res) => {
     }
 }
 
-module.exports = editCustomerData;
+module.exports = updateClient;

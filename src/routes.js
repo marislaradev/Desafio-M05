@@ -15,7 +15,7 @@ const schemaProduct = require('./schemas/schemaProduct');
 const registerProduct = require('./controllers/registerProduct');
 const detailProduct = require('./controllers/detailProduct');
 const detailClient = require('./controllers/detailClient');
-const editCustomerData = require('./controllers/editCustomerData');
+const updateClient = require('./controllers/updateClient');
 
 const routes = express();
 
@@ -33,7 +33,7 @@ routes.post('/cliente', validateRequestBody(schemaNewClient), registerNewClient)
 
 routes.get('/cliente/:id', detailClient);
 
-routes.put('/cliente/:id', validateRequestBody(schemaNewClient), editCustomerData);
+routes.put('/cliente/:id', validateRequestBody(schemaNewClient), updateClient);
 
 routes.post('/produto', validateRequestBody(schemaProduct), registerProduct); 
 
