@@ -16,8 +16,8 @@ const registerProduct = require('./controllers/registerProduct');
 const detailProduct = require('./controllers/detailProduct');
 const detailClient = require('./controllers/detailClient');
 const editCustomerData = require('./controllers/editCustomerData');
-const updateProduct = require('./controllers/updateProduct')
-
+const updateProduct = require('./controllers/updateProduct');
+const listClients = require('./controllers/listClients')
 const routes = express();
 
 routes.get('/categoria', listCategories);
@@ -31,7 +31,7 @@ routes.get('/usuario', detailUser);
 routes.put('/usuario', validateRequestBody(schemaUser), updateUser);
 
 routes.post('/cliente', validateRequestBody(schemaNewClient), registerNewClient);
-
+routes.get('/cliente', listClients);
 routes.get('/cliente/:id', detailClient);
 
 routes.put('/cliente/:id', validateRequestBody(schemaNewClient), editCustomerData);
