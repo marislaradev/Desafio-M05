@@ -1,4 +1,4 @@
-const knex = require('../database/connection');
+const knex = require('../../database/connection');
 
 const detailClient = async (req, res) => {
     const customerId = req.params.id;

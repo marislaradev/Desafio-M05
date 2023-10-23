@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const knex = require('../database/connection');
+const knex = require('../../database/connection');
 
 const updateUser = async (req, res) => {
   const { nome, email, senha } = req.body;

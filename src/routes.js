@@ -1,22 +1,26 @@
 const express = require('express');
 const listCategories = require('./controllers/listCategories');
-const registerUser = require('./controllers/registerUser');
-const login = require('./controllers/login')
-const detailUser = require('./controllers/detailUser');
-const updateUser = require('./controllers/updateUser');
-const verifyLogin = require('./middleware/authentication');
 const validateRequestBody = require('./middleware/validateRequestBody');
-const schemaLogin = require('./schemas/schemaLogin');
 const schemaUser = require('./schemas/schemaUser');
-const deleteProduct = require('./controllers/deleteProduct');
-const registerNewClient = require('./controllers/registerNewClient');
-const schemaNewClient = require('./schemas/schemaNewClient');
+const registerUser = require('./controllers/users/registerUser');
+
+const schemaLogin = require('./schemas/schemaLogin');
+const login = require('./controllers/users/login')
+const verifyLogin = require('./middleware/authentication');
+
+const detailUser = require('./controllers/users/detailUser');
+const updateUser = require('./controllers/users/updateUser');
+
 const schemaProduct = require('./schemas/schemaProduct');
-const registerProduct = require('./controllers/registerProduct');
-const detailProduct = require('./controllers/detailProduct');
-const detailClient = require('./controllers/detailClient');
-const updateClient = require('./controllers/updateClient');
-const updateProduct = require('./controllers/updateProduct')
+const registerProduct = require('./controllers/products/registerProduct');
+const updateProduct = require('./controllers/products/updateProduct');
+const detailProduct = require('./controllers/products/detailProduct');
+const deleteProduct = require('./controllers/products/deleteProduct');
+
+const schemaNewClient = require('./schemas/schemaNewClient');
+const registerNewClient = require('./controllers/clients/registerNewClient');
+const updateClient = require('./controllers/clients/updateClient');
+const detailClient = require('./controllers/clients/detailClient');
 
 const routes = express();
 
@@ -30,18 +34,13 @@ routes.use(verifyLogin);
 routes.get('/usuario', detailUser);
 routes.put('/usuario', validateRequestBody(schemaUser), updateUser);
 
-routes.post('/cliente', validateRequestBody(schemaNewClient), registerNewClient);
-
-routes.get('/cliente/:id', detailClient);
-
-routes.put('/cliente/:id', validateRequestBody(schemaNewClient), updateClient);
-
 routes.post('/produto', validateRequestBody(schemaProduct), registerProduct);
-
 routes.put('/produto/:id', validateRequestBody(schemaProduct), updateProduct);
-
 routes.get('/produto/:id', detailProduct);
-
 routes.delete('/produto/:id', deleteProduct);
+
+routes.post('/cliente', validateRequestBody(schemaNewClient), registerNewClient);
+routes.put('/cliente/:id', validateRequestBody(schemaNewClient), updateClient);
+routes.get('/cliente/:id', detailClient);
 
 module.exports = routes;

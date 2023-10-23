@@ -1,4 +1,4 @@
-const knex = require('../database/connection');
+const knex = require('../../database/connection');
 
 const deleteProduct = async (req, res) => {
     const { id } = req.params;
