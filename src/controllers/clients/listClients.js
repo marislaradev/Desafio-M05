@@ -1,4 +1,4 @@
-const knex = require('../database/connection')
+const knex = require('../../database/connection')
 
 const listClients = async (req, res) => {
     try {
