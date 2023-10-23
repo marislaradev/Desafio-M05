@@ -1,4 +1,4 @@
-const knex = require('../database/connection');
+const knex = require('../../database/connection');
 
 const detailProduct = async (req, res) => {
     const productId = req.params.id;
@@ -11,7 +11,7 @@ const detailProduct = async (req, res) => {
         }
 
         const product = await knex('produtos')
-            .where('id',  integerProductId)
+            .where('id', integerProductId)
             .first();
 
         if (!product) {

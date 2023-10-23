@@ -1,4 +1,4 @@
-const knex = require('../database/connection');
+const knex = require('../../database/connection');
 
 const updateProduct = async (req, res) => {
   const productId = req.params.id;
@@ -28,7 +28,7 @@ const updateProduct = async (req, res) => {
       .update({ descricao, quantidade_estoque, valor, categoria_id });
 
     return res.status(200).json({ mensagem: 'Produto atualizado com sucesso' });
-    
+
   } catch (error) {
     return res.status(500).json({ mensagem: "Erro inesperado do servidor" });
   }
