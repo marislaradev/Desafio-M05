@@ -11,11 +11,7 @@ const listProducts = async (req, res) => {
                 return res.status(400).json({ mensagem: 'A categoria_id do produto é inválida' });
             }
 
-            const product = await knex('produtos').where('categoria_id', categoria_id).first();
-
-            if (!product) {
-                return res.status(404).json({ mensagem: 'Produto não encontrado' });
-            }
+            const product = await knex('produtos').where('categoria_id', categoria_id);
 
             return res.status(200).json(product);
         }
