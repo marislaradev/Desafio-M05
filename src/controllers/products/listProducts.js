@@ -1,4 +1,4 @@
-const knex = require('../database/connection')
+const knex = require('../../database/connection')
 
 const listProducts = async (req, res) => {
     const { categoria_id } = req.query;
