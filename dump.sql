@@ -106,3 +106,20 @@ CREATE TABLE clientes (
     cidade VARCHAR(255),
     estado VARCHAR(100)
 );
+
+CREATE TABLE pedidos (
+  id SERIAL PRIMARY KEY,
+  cliente_id INTEGER NOT NULL REFERENCES clientes(id),
+  observacao VARCHAR(255),
+  valor_total INTEGER
+);
+
+CREATE TABLE pedido_produtos (
+  id SERIAL PRIMARY KEY,
+  pedido_id INTEGER REFERENCES pedidos(id),
+  produto_id INTEGER NOT NULL REFERENCES produtos(id),
+  quantidade_produto INTEGER NOT NULL,
+  valor_produto INTEGER
+);
+
+ALTER TABLE produtos ADD COLUMN produto_imagem VARCHAR(255);
