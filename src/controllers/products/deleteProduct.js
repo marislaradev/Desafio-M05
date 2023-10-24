@@ -4,6 +4,13 @@ const deleteProduct = async (req, res) => {
     const { id } = req.params;
 
     try {
+        const validateOrder = await knex('pedido_produtos').where('produto_id', id);
+
+        if (validateOrder.length > 0) {
+            return res.status(400)
+                .json({ mensagem: 'Produto não pode ser excluído, está vinculado a algum pedido' });
+        }
+
         const validId = await knex('produtos')
             .where({ id });
 
