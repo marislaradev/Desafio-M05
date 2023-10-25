@@ -50,5 +50,6 @@ routes.get('/cliente', listClients);
 routes.get('/cliente/:id', detailClient);
 
 routes.post('/pedido', validateRequestBody(schemaRegisterOrder), registerOrder);
+routes.get('/pedido', listOrder);
 
 module.exports = routes;
