@@ -26,8 +26,8 @@ const listOrder = async (req, res) => {
                 }
                 query = query.where('p.cliente_id', cliente_id);
             } else {
-                const pedidoProdutos = await knex('pedido_produtos').select('*');
-                return res.status(200).json(pedidoProdutos);
+                const allOrders = await knex('pedidos').select('*');
+                return res.status(200).json(allOrders);
             }
 
             const orders = await query;
