@@ -2,9 +2,7 @@ const knex = require('../../database/connection');
 
 const registerOrder = async (req, res) => {
     const { cliente_id, observacao, pedido_produtos } = req.body;
-    if (!cliente_id) {
-        return res.status(404).json({ mensagem: 'O servidor não pode encontrar o cliente.' }); // melhorar msg de erro?
-    }
+
     try {
         const verifyClienteId = await knex('clientes').where({ id: cliente_id });
         // console.log(verifyClienteId)
@@ -12,7 +10,7 @@ const registerOrder = async (req, res) => {
             return res.status(404).json({ mensagem: 'O servidor não pode encontrar o cliente.' }); // melhorar msg de erro?
         }
         // array vazio
-        if (!pedido_produtos || pedido_produtos.length === 0) {
+        if (pedido_produtos.length === 0) {
             return res.status(400).json({ mensagem: 'Sem produtos.' }); // melhorar msg de erro?
         }
         let valor_total = 0
