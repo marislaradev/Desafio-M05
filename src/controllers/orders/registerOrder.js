@@ -6,20 +6,20 @@ const registerOrder = async (req, res) => {
 
     try {
         const verifyClienteId = await knex('clientes').where({ id: cliente_id });
-        // console.log(verifyClienteId)
+
         if (!verifyClienteId.length) {
             return res.status(404).json({ mensagem: 'O servidor não pode encontrar o cliente.' }); // melhorar msg de erro?
         }
-        // array vazio
+
         if (pedido_produtos.length === 0) {
-            return res.status(400).json({ mensagem: 'Sem produtos.' }); // melhorar msg de erro?
+            return res.status(404).json({ mensagem: 'Não há produtos no pedido.' });
         }
         let valor_total = 0
         for (const produto of pedido_produtos) {
             const verifyProduct = await knex('produtos').where({ id: produto.produto_id }).first();
             console.log(verifyProduct)
             if (!verifyProduct) {
-                return res.status(404).json({ mensagem: `id errado ${produto.produto_id}` })
+                return res.status(404).json({ mensagem: `O id ${produto.produto_id} do produto está incorreto.` })
             }
 
             if (verifyProduct.quantidade_estoque < produto.quantidade_produto) {
@@ -43,9 +43,9 @@ const registerOrder = async (req, res) => {
         transport.sendMail({
             from: `${process.env.EMAIL_NAME} <${process.env.EMAIL_FROM}>`,
             to: `${cliente.nome} <${cliente.email}>`,
-            subject: "Hello ✔", // Subject line
-            text: "Hello world?", // plain text body
-            html: "<b>Hello world?</b>", // html body
+            subject: "Hello ✔",
+            text: "Hello world?",
+            html: "<b>Hello world?</b>",
         })
         return res.status(200).json(pedidos)
     }
