@@ -1,4 +1,5 @@
 const knex = require('../../database/connection');
+const transport = require('../email');
 
 const registerOrder = async (req, res) => {
     const { cliente_id, observacao, pedido_produtos } = req.body;
@@ -38,6 +39,14 @@ const registerOrder = async (req, res) => {
             await knex('produtos').update({ quantidade_estoque: atualizaEstoque }).where({ id: produto.produto_id })
         }
 
+        const cliente = verifyClienteId[0];
+        transport.sendMail({
+            from: `${process.env.EMAIL_NAME} <${process.env.EMAIL_FROM}>`,
+            to: `${cliente.nome} <${cliente.email}>`,
+            subject: "Hello ✔", // Subject line
+            text: "Hello world?", // plain text body
+            html: "<b>Hello world?</b>", // html body
+        })
         return res.status(200).json(pedidos)
     }
     catch (error) {
