@@ -23,6 +23,8 @@ const registerNewClient = require('./controllers/clients/registerNewClient');
 const updateClient = require('./controllers/clients/updateClient');
 const listClients = require('./controllers/clients/listClients');
 const detailClient = require('./controllers/clients/detailClient');
+const registerOrder = require('./controllers/orders/registerOrder');
+const schemaRegisterOrder = require('./schemas/schemaRegisterOrder')
 
 const routes = express();
 
@@ -46,5 +48,7 @@ routes.post('/cliente', validateRequestBody(schemaNewClient), registerNewClient)
 routes.put('/cliente/:id', validateRequestBody(schemaNewClient), updateClient);
 routes.get('/cliente', listClients);
 routes.get('/cliente/:id', detailClient);
+
+routes.post('/pedido', validateRequestBody(schemaRegisterOrder), registerOrder);
 
 module.exports = routes;
