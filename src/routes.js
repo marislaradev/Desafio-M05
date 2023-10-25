@@ -24,7 +24,8 @@ const updateClient = require('./controllers/clients/updateClient');
 const listClients = require('./controllers/clients/listClients');
 const detailClient = require('./controllers/clients/detailClient');
 const registerOrder = require('./controllers/orders/registerOrder');
-const schemaRegisterOrder = require('./schemas/schemaRegisterOrder')
+const schemaRegisterOrder = require('./schemas/schemaRegisterOrder');
+const listOrder = require('./controllers/orders/listOrder');
 
 const routes = express();
 
