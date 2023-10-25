@@ -23,10 +23,9 @@ const schemaProduct = joi.object({
         'any.required': 'Preencha a categoria do produto',
         'string.empty': 'Preencha a categoria do produto'
     }),
-    produto_imagem: joi.string().uri().allow('').optional().messages({
-        'string.uri': 'Insira uma URL válida para a imagem do produto',
+    produto_imagem: joi.string().allow('').optional().messages({
         'string.empty': 'Inserir a URL da imagem é opcional'
-    })
+    }),
 });
 
 module.exports = schemaProduct;

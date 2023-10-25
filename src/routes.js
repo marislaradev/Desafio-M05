@@ -7,6 +7,7 @@ const registerUser = require('./controllers/users/registerUser');
 const schemaLogin = require('./schemas/schemaLogin');
 const login = require('./controllers/users/login')
 const verifyLogin = require('./middleware/authentication');
+const multer = require('./middleware/multer');
 
 const detailUser = require('./controllers/users/detailUser');
 const updateUser = require('./controllers/users/updateUser');
@@ -39,7 +40,8 @@ routes.use(verifyLogin);
 routes.get('/usuario', detailUser);
 routes.put('/usuario', validateRequestBody(schemaUser), updateUser);
 
-routes.post('/produto', validateRequestBody(schemaProduct), registerProduct);
+routes.post('/produto', multer.single('produto_imagem'), validateRequestBody(schemaProduct), registerProduct);
+
 routes.put('/produto/:id', validateRequestBody(schemaProduct), updateProduct);
 routes.get('/produto', listProducts);
 routes.get('/produto/:id', detailProduct);
