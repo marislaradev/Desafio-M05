@@ -19,7 +19,7 @@ const deleteProduct = async (req, res) => {
             return res.status(404).json({ mensagem: 'O servidor não pode encontrar o recurso solicitado.' });
         }
 
-        const path = await knex.select('produto_imagem').from('produtos').where('id', id);
+        const path = await knex.select('produto_imagem').from('produtos').where('id', id).first();
 
         if (path.indexOf('http') != -1) { 
             url = new URL(path)
