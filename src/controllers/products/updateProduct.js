@@ -14,11 +14,13 @@ const updateProduct = async (req, res) => {
 
       const url = await knex('produtos').select('produto_imagem').where('id', productId).first();
 
-      const position = url.produto_imagem.indexOf("produto");
+      if (url.produto_imagem !== null) {
+        const position = url.produto_imagem.indexOf("produto");
 
-      const path = url.produto_imagem.slice(position);
+        const path = url.produto_imagem.slice(position);
 
-      await deleteImage(path);
+        await deleteImage(path);
+      }
 
       const image = await uploadImage(
         `produto/${productId}/${originalname}`,
