@@ -1,5 +1,4 @@
 const knex = require('../../database/connection');
-const url = require('url');
 const { deleteImage } = require('../../services/services')
 
 const deleteProduct = async (req, res) => {
@@ -23,7 +22,8 @@ const deleteProduct = async (req, res) => {
         const path = await knex.select('produto_imagem').from('produtos').where('id', id);
 
         if (path.indexOf('http') != -1) { 
-            path = url.parse(path).pathname
+            url = new URL(path)
+            path = url.pathname
         };
 
         await deleteImage(path);
