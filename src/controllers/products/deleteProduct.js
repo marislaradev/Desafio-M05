@@ -18,15 +18,16 @@ const deleteProduct = async (req, res) => {
         if (validId.length === 0) {
             return res.status(404).json({ mensagem: 'O servidor não pode encontrar o recurso solicitado.' });
         }
-
-        const { produto_imagem } = await knex.select('produto_imagem').from('produtos').where('id', id).first();
-
-        if (produto_imagem.indexOf('http') != -1) { 
-            url = new URL(produto_imagem)
-            produto_imagem = url.pathname.toString().slice(1)
-        };
+    
+        let { produto_imagem } = await knex.select('produto_imagem').from('produtos').where('id', id).first();
         
-        await deleteImage(produto_imagem);
+        if (produto_imagem !== null) {
+            if (produto_imagem.indexOf('http') != -1) { 
+                let url = new URL(produto_imagem)
+                produto_imagem = url.pathname.toString().slice(1)
+            };
+            await deleteImage(produto_imagem);
+        } 
 
         await knex('produtos').del().where({ id });
 
