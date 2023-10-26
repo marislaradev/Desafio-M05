@@ -32,7 +32,7 @@ const listOrder = async (req, res) => {
 
         for (const order of allOrders) {
 
-            let existingOrder = formattedOrders.find((allFormattedOrders) =>
+            let existingOrder = allFormattedOrders.find((allFormattedOrders) =>
                 allFormattedOrders.pedido.id === order.pedido_id
             );
 
