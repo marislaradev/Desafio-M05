@@ -1,5 +1,6 @@
 const knex = require('../../database/connection');
 const { uploadImage } = require('../../services/services');
+const { deleteImage } = require('../../services/services');
 
 const updateProduct = async (req, res) => {
   const productId = req.params.id;
@@ -7,22 +8,35 @@ const updateProduct = async (req, res) => {
 
   let imageUrl = null;
 
-  if (req.file) {
-    const { originalname, mimetype, buffer } = req.file;
-    const image = await uploadImage(
+  try {
+    if (req.file) {
+      const { originalname, mimetype, buffer } = req.file;
+
+      const url = await knex('produtos').select('produto_imagem').where('id', productId).first();
+
+      if (url.produto_imagem !== null) {
+        const position = url.produto_imagem.indexOf("produto");
+
+        const path = url.produto_imagem.slice(position);
+
+        await deleteImage(path);
+      }
+
+      const image = await uploadImage(
         `produto/${productId}/${originalname}`,
         buffer,
         mimetype
-    );
-    imageUrl = image.URL;
-} else {
-  const product = await knex('produtos').where('id', productId).first();
-  if (product) {
-    imageUrl = product.produto_imagem;
-  }
-}
+      );
+      imageUrl = image.URL;
 
-  try {
+    } else {
+      const product = await knex('produtos').where('id', productId).first();
+
+      if (product) {
+        imageUrl = product.produto_imagem;
+      }
+    }
+
     const integerProductId = parseInt(productId);
 
     if (!Number.isInteger(integerProductId)) {
