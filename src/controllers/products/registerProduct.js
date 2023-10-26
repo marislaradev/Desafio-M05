@@ -12,7 +12,6 @@ const registerProduct = async (req, res) => {
         .first();
 
         if (!verifyCategory) {
-            console.log('Categoria inválida.');
             return res.status(400).json({ mensagem: 'A categoria informada não existe' });
         }
 
