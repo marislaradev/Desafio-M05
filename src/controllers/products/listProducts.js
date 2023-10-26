@@ -13,6 +13,10 @@ const listProducts = async (req, res) => {
 
             const product = await knex('produtos').where('categoria_id', categoria_id);
 
+            if (product.length === 0) {
+                return res.status(400).json({ mensagem: 'Categoria_id não encontrada' })
+            }
+
             return res.status(200).json(product);
         }
 
