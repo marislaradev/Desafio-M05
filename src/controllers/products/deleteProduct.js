@@ -1,5 +1,5 @@
 const knex = require('../../database/connection');
-const deleteImage = require('../../services/services')
+const { deleteImage } = require('../../services/services')
 
 const deleteProduct = async (req, res) => {
     const { id } = req.params;
@@ -18,12 +18,18 @@ const deleteProduct = async (req, res) => {
         if (validId.length === 0) {
             return res.status(404).json({ mensagem: 'O servidor não pode encontrar o recurso solicitado.' });
         }
+    
+        let { produto_imagem } = await knex.select('produto_imagem').from('produtos').where('id', id).first();
+        
+        if (produto_imagem !== null) {
+            if (produto_imagem.indexOf('http') != -1) { 
+                let url = new URL(produto_imagem)
+                produto_imagem = url.pathname.toString().slice(1)
+            };
+            await deleteImage(produto_imagem);
+        } 
 
         await knex('produtos').del().where({ id });
-
-        const path = await knex.select('produto_imagem').from('produtos').where('id', id);
-
-        await deleteImage(path);
 
         return res.status(204).send();
     } catch (error) {
