@@ -23,7 +23,7 @@ const deleteProduct = async (req, res) => {
 
         if (path.indexOf('http') != -1) { 
             url = new URL(path)
-            path = url.pathname
+            path = url.pathname.toString().slice(1)
         };
 
         await deleteImage(path);
