@@ -117,7 +117,7 @@ Agradecemos antecipadamente pelo interesse.
 
 <img src="./img/agradecimentos.png" alt="agradecimentos" width=400 border="0" /> </div>
 
-Agradecemos a nossa professora Isabella Nunes; nossa monitora Jules; os professores Guido Cerqueira, José Messias Junior e Guilherme Bernal; ao Potência Tech, iniciativa do iFood que nos conectou; e também a todos da Cubos Academy.
+Agradecemos a nossa professora Isabella Nunes; nossa representante de turma Jules; o monitor Lucas Oliveira; os professores Guido Cerqueira, José Messias Junior e Guilherme Bernal; ao Potência Tech, iniciativa do iFood que nos conectou; e também a todos da Cubos Academy.
 
 ## Autoras
 <table>
