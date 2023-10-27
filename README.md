@@ -79,19 +79,18 @@ Aqui está uma lista das principais rotas da API:
 |        |                                   |                                                              |
 | ------ | --------------------------------- | -------------------------------------------------- |
 | `GET`   | `/usuario`                     | Lista dados do usuáro logado.                         |
-| `PUT`   | `/usuario`                    | Altera dados do usuário logado. Preencher no Json nome, email e senha a serem alterados. usuário.                            |
-| `POST`    | `/produto`                           | permite o usuário logado cadastrar um novo produto no sistema.                        |
+| `PUT`   | `/usuario`                    | Altera dados do usuário logado. Preencher no Json nome, email e senha a serem alterados.                            |
+| `POST`    | `/produto`                           | Permite o usuário logado cadastrar um novo produto no sistema.                        |
 | `PUT`    | `/produto/:id`                       | Permite o usuário logado a atualizar as informações de um produto cadastrado.                         |
 | `GET`  | `/produto`                       |  Lista todos os produtos cadastrados.      |
-| `GET`    | `/produto/:id`                           | permite o usuário logado obter um de seus produtos cadastrados.
-| `POST`    | `/login`                           | *Faz login do usuário. Preencher no Json email e senha.                        |
-| `GET`   | `/categoria`                     | Lista as categorias de produtos.                         |
-| `POST`   | `/usuario`                    | Criar um novo usuário. Preencher no Json os campos nome, email e senha.                            |
-| `POST`    | `/login`                           | Faz login do usuário. Preencher no Json email e senha.                        |
-| `GET`   | `/categoria`                     | Lista as categorias de produtos.                         |
-| `POST`   | `/usuario`                    | Criar um novo usuário. Preencher no Json os campos nome, email e senha.                            |
-| `POST`    | `/login`                           | Faz login do usuário. Preencher no Json email e senha.                        |
-
+| `GET`    | `/produto/:id`                           | Permite o usuário logado obter um de seus produtos cadastrados.
+| `DELETE`    | `/produto/:id`                           | Essa é a rota que será chamada quando o usuário logado quiser excluir um de seus produtos cadastrados.                        |
+| `POST`   | `/cliente`                     | Permite usuário logado cadastrar um novo cliente no sistema.                         |
+| `PUT`   | `/cliente/:id`                    | Permite o usuário realizar atualização de um cliente cadastrado.                            |
+| `GET`    | `/cliente`                           | Essa é a rota que será chamada quando o usuário logado quiser listar todos os clientes cadastrados.                        |
+| `GET`   | `/cliente/:id`                     | Essa é a rota que será chamada quando o usuário logado quiser obter um de seus clientes cadastrados.                         |
+| `POST`   | `/pedido`                    | Essa é a rota que será utilizada para cadastrar um novo pedido no sistema.                            |
+| `GET`    | `/pedido`                           | Essa é a rota que será chamada quando o usuário logado quiser listar todos os pedidos cadastrados.                        |
 
 <br>
 
